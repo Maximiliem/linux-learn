@@ -1,0 +1,82 @@
+Permisos, usuarios y grupos.
+
+Para listar el contenido de un directorio o carpeta
+tenemos que utilizar el comando ls
+
+A su vez, con la bandera -l podemos ver con más detalles
+los permisos y otros datos de los archivos y carpetas
+el comando sería ls -l
+
+lo que se lista con la bandera -l es:
+primera columna - permisos
+segunda columna - número
+tercera columna - quién es el dueño del archivo o directorio
+cuarta columna - grupo dueño del archivo o directorio
+
+primera columna
+-rw-rw-r--
+
+primer elemento -
+indica el tipo de archivo (cuando es - es un archivo)
+d indica que es un directorio
+
+segundo elemento
+los siguientes caracteres (los tres siguientes al primer elemento)
+rw- nos indican cuáles son los permisos del dueño del archivo
+
+tercer elemento
+los siguientes tres nos indican cuáles son los permisos del grupo
+rw-
+
+cuarto elemento
+los últimos tres r--
+nos indican los permisos de otros usuarios que no son el dueño
+ni nadie perteneciente al grupo
+
+
+r = permisos de lectura Read
+w = permisos de escritura Write
+x = permisos de ejecución
+- = no se tiene el permiso
+
+
+CREAR UN NUEVO GRUPO
+comando sudo groupadd nombreGrupo
+
+CREAR USUARIOS
+sudo adduser nombreUsuario
+contraseña para usuario creado
+información del usuario
+
+AÑADIR USUARIO A UN GRUPO
+sudo adduser nombreUsuario nombreGrupo
+
+CAMBIAR DE USUARIO O LOGEAR POR TERMINAL
+su nombreUsuario
+contraseña del usuario
+
+CAMBIAR GRUPO AL QUE PERTENECE UN ARCHIVO
+comando: chgrp nombreGrupo nombreArchivo.extensión
+
+LEER CONTENIDO DE ARCHIVO
+usamos cat para leer el archivo en terminal
+
+ESCRIBIR CONTENIDO EN UN ARCHIVO
+echo texto a escribir nombreArchivoDestino.extensión
+
+CAMBIAR PERMISOS DE UN USUARIO
+chmod 
+se puede utilizar un código de números para añadir o modificar
+permisos
+en binario se remite a 1 para cuando hay un permiso y 0 cuando no
+habría que hacer la "traducción" del binario a números
+rw- = 666 (código para dar permiso de lectura y escritura, pero no
+de ejecución)
+chmod 666 archivo.extensión
+
+COMANDO PARA BORRAR ARCHIVOS Y DIRECTORIOS
+usamos rm nombreArchivo.extensión para borrar un archivo
+cuando tenemos un directorio, hay que agregar la bandera -r
+de recursivo, quedando el comando rm -r nombreCarpeta
+
+
