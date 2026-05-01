@@ -161,3 +161,37 @@ scp origen destino
 
 Si quier traer archivos a mi máquina desde otra
 scp nombreUsuarioOrigen@ip:/directorio/origen ./ruta/destino
+
+
+--------
+
+ACL - ACCESS CONTROL LIST - LISTAS DE CONTROL DE ACCESO
+Sirve para configurar permisos de usuarios y grupos sobre archivos y directorios
+
+Comandos:
+getfacl - para listar y ver los permisos que hay
+setfacl - para asignar o quitar permisos
+
+getfacl archivo_ejemplo
+lista los permisos para user (owner), group, other.
+
+sudo setfacl -m g:grupo_1:rw archivo_ejemplo
+esto significa:
+-m para modificar
+g indica grupo, pero puede ser u para user, mask para la máscara (que son los
+permisos máximos a tener, que no afecta a root y other), o para other users 
+:grupo_1 es el nombre del grupo
+:rw son los permisos que se otorgan
+archivo_ejemplo es el archivo destino de los permisos
+
+Para aplicarlo en un directorio 
+sudo setfacl -R -m g:grupo_1:rw dir_1/
+
+esto significa
+-R que es recursivo y afecta a todo lo de dentro del directorio
+-m que modifica
+también se podía haber escrito como -Rm
+g: para grupo
+grupo_1 para nombre del grupo
+:rw los permisos de lectura y escritura asignados
+dir_1/ es el directorio destino de esa moficiación
