@@ -79,4 +79,47 @@ usamos rm nombreArchivo.extensión para borrar un archivo
 cuando tenemos un directorio, hay que agregar la bandera -r
 de recursivo, quedando el comando rm -r nombreCarpeta
 
+------
+
+PROTOCOLO SSH
+es un protocolo que permite una conexión remota segura entre dos máquinas
+con una estructura cliente-servidor
+
+en ambas máquinas tiene que haber un cliente ssh instalado
+
+tenemos que saber la ip de la máquina destino y algún usuario que haya en
+dicha máquina destino
+
+openssh - desde termina
+cliente putty - es un entorno gráfico que también permite ser usado desde 
+windows
+
+para instalar cliente openssh en linux
+sudo apt-get install openssh-client
+
+REALIZAR CONEXIÓN REMOTA
+ssh nombreUsuario@numeroDeIPdelHostRemoto
+ssh maxi@192.168.0.77
+
+nos va a salir un mensaje diciendo que no conocemos la autenticidad del host
+remoto y le tenemos que indicar que si, para añadir ese host a la lista
+de host conocidos
+Luego nos pide una contraseña para acceder al host y tenemos que poner
+la contraseña del usuairo al que queremos conectarnos
+
+Ahora ya podremos trabajar con ese nuevo usuario como si estuviéramos en él
+
+Para salir de la sesión colocamos exit
+y volveremos a tener el prompt de nuestra pc
+
+
+CONEXIÓN SSH CON PUTTY
+sudo apt-get install putty
+
+luego por terminal escribimos putty y se abrirá el cliente gráfico
+
+introducimos el ip del host remoto y el puerto
+guardamos la sesión con un nombre
+luego load y open
+aceptamos y listo
 
