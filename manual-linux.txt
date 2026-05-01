@@ -123,3 +123,41 @@ guardamos la sesión con un nombre
 luego load y open
 aceptamos y listo
 
+------
+
+DETECCIÓN DE MEMORY LEAKS CON VALGRIND
+
+Qué es un memory leak?
+Significa pérdida de memoria o filtrado de memoria.
+Ocurre cuando un proceso gestiona mal la memoria y afecta a los programas 
+escritos en C o C++
+
+El caso típico es cuando escribimos un programa que reserva memoria
+dinámicamente y no la libera (usando la función free())
+
+Es difícil de detectar, ya que puedo escribir el programa, ejecutar el proceso
+dejarlo corriendo varias horas o días y hasta bastante pasado el tiempo
+no sea visible el problema. Al cabo de cierto tiempo empezarán a fallar
+ciertos procesos del sistema.
+Se comienza a consumir recursos de memoria muy altos que otros programas 
+necesitan.
+
+Qué es valgrind?
+Detectan errores en el manejo de memoria de un programa.
+
+--------
+
+TRANSFERIR ARCHIVOS CON SCP
+
+tenemos que conocer el usuario de la máquina a donde nos vamos a conectar
+la contraseña y la ip de esa máquina
+
+la estructura es la siguiente (sin conectarse por ssh)
+Para mandar archivos desde mi máquina
+scp nombreArchivo.extensión nombreUsuarioDestino@ip:/directorio/destino
+
+básicamente la estructura es 
+scp origen destino
+
+Si quier traer archivos a mi máquina desde otra
+scp nombreUsuarioOrigen@ip:/directorio/origen ./ruta/destino
