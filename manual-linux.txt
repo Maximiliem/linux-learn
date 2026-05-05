@@ -195,3 +195,287 @@ g: para grupo
 grupo_1 para nombre del grupo
 :rw los permisos de lectura y escritura asignados
 dir_1/ es el directorio destino de esa moficiación
+
+---------
+
+COMANDOS BÁSICOS DE MANIPULACIÓN DE ARCHIVOS Y DIRECTORIOS
+
+sabemos que con ls listamos los contenidos del directorio
+con la flag/opción -letra podemos acceder a más funciones de ls
+* ls -l lista un formato largo en donde se indican permisos de los
+archivos y documentos
+* ls -a lista archivos y carpetas ocultos en adición a los que ya
+son visibles de manera normal con ls
+* ls -la combina el formato largo y muestra además archivos ocultos
+
+mkdir - significa make directory y sirve para crear carpetas
+ejemplo de uso: mkdir Carpeta1
+
+rmdir - sirve para eliminar el directorio que se desee
+ejemplo de uso: rmdir Carpeta1
+
+cp es el comando para copiar y debemos indicar el archivo o 
+carpeta a copiar y el destino (que el destino puede ser otro archivo
+o un nuevo directorio) 
+en caso de copiar un archivo, es importante poner la extensión
+correcta del archivo
+ejemplo de uso: cp documento document1.txt (siendo que el documento
+original es un .txt)
+
+en acso de copiar una carpeta o directorio tenemos que hacer -r
+porque indica que es recursivo y nos copia todo lo que hay bajo
+el directorio
+ejemplo de uso: cp -r Course CopiaCourse
+
+cp -a Curso Curso2
+esto permite copiar absolutamente todo lo que haya en la carpeta
+origen
+copia permisos, directorios, archivos, absolutamente todo
+
+la gran diferencia de la copia recursiva -r y la -a es que
+la recursiva puede dejarse algunas cosas en camino sin copiar
+
+en una copia recursiva, puede fallar la copia de una carpeta vacía
+
+COPIAR UN ARCHIVO EN DOS LUGARES DIFERENTES
+para copiar un archivo en el directorio actual y en otro directorio
+debemos indicar el nombre de la copia para nuestro directorio actual
+y a su vez, separar con ; y luego indicar nuevamente el comando y 
+destino
+
+cp manual-linux.txt copia_manual.txt; cp copia_manual.txt ./pruebas/test1/ 
+
+para MOVER, el comando es mv
+mv archivo.txt ./rutaDestino/destino
+puedo también mover a directorios padres de la siguiete manera
+mv archivo.txt ../ubicaciónDistinta/destino
+
+mv también sirve para renombrar archivos
+mv README.md LLEME.md
+
+para borrar archivos y directorios
+rm -r Carpeta
+rm archivo
+
+BORRADOS COMPLEJOS
+rm -ri Carpeta
+nos va a preguntar archivo por archivo si queremos eliminar
+prque es un borrado interactivo
+
+rm -rf 
+este comando es para forzar el borrado y lo elimina sin pedir
+confirmación alguna
+sirve tanto para directorios como archivos y se borran de manera
+definitiva
+
+-------
+
+WILDCARDS - COMODINES
+sirve para hacer referencia a algo que no conocemos o más de una
+cosa
+
+*
+?
+
+el * hace referencia a archivos que comienzan con lo que queramos
+por ejemplo si quisiéramos ver solo los archivos .md de una
+carpeta que tiene 5 archivos (4 son .md y 1 .txt)
+ls *.md 
+
+por ejemplo si quisiéramos ver todos los archivos que comienzan
+por 03 (por ejemplo), sabiendo que hay un archivo llamado
+03-curso-programacion-1.txt
+lo podemos buscar de dos maneras
+
+ls 03* y nos va a buscar todos los archivos y carpetas que 
+empiecen con 03 sin importar lo que siga después o bien le podemos
+indicar que finalicen de alguna manera como una extensión
+ls 03*.txt
+en ese caso veremos el archivo 03-curso-programacion-1.txt
+
+esto es porque el * hace referencia a 0 o más caracteres
+--
+el ? hace referencia a un número exacto de caracteres
+tenemos que utilizar le ? haciendo referencia a algo concreto
+
+si tuviera un archivo que se llame a.txt para encontrarlo con ?
+debería hacer esto: ls a????
+por qué son 4 los ? -> porque el punto y la extensión son caracteres
+y luego de la a hay 4 caracteres.
+En caso de tener un archivo que se llame ar.txt no lo vamos a ver
+ya que los caracteres que se siguen de la a son r.txt y son 5
+
+otra forma de encontrar el archivo a.txt sería saber que termina
+en .txt y que solo sabemos que el nombre del archivo es 1 caracter
+entonces hacemos ls ?.txt
+ya que de esta manera estamos indicando exactamente el número de 
+caracteres
+--
+los comodines no solamente sirven para listar, también se pueden
+usar con otros comandos como rm
+
+si tuviéramos 2 archivos a.txt y b.txt podríamos hacer
+rm ?.txt y nos estaría eliminando ambos archivos
+
+------
+
+LISTADOS AVANZADOS
+comando tree
+importante no usarlo en raíz porque te lista absolutamente todo lo
+que tiene tu sistema
+es bueno usarlo dentro de algún directorio en particular
+tree también tiene sus flags como tree -a
+
+comando find
+sirve para encontrar archivos por nombre o criterio
+find . -name "archivo.extension"
+es importante destacar que con el . estamos indicando el directorio
+donde nos encontramos, sino busca en todo el sistema
+
+también se puede combinar con el comodín del *
+find . -name "archivo*"
+y nos debería devolver el archivo con su extensión
+
+
+LECTURA DE ARCHIVOS
+cat -> muestra el contenido del archivo por pantalla y es útil
+para archivos de pequeña extensión
+
+para tener más control sobre lo que visualizamos en pantalla 
+podemos usar el comando less que nos permite paginar el contenido
+es decir, no se despliega de una todo el fichero o archivo en
+pantalla
+
+para salir de la visualización de less hay que presionar q
+
+básicamente less abre un visor para el documento
+
+comando more -> nos da visualización del documento con menos
+funcionalidades que less
+
+comando head -> nos muestra las primeras 10 líneas del archivo
+y más nada, es una especie de preview del documento.
+
+puedo manipular la cantidad de líneas que quiero visualizar con
+head con la flag -n y el número de líneas
+head -n 20 archivo.txt
+
+también podemos ver el final del documento con el comando tail
+también aplica el -n 20 para tail
+tail archivo.txt
+tail -n 20 archivo.txt
+
+LOGS con tail
+podemos ver el final constantemente con tail -f file.log
+para visualizar constantemente el final del documento, ya que los
+logs siempre guardan al final del todo los últimos registros
+
+BÚSQUEDAS DENTRO DE ARCHIVOS GREP
+sirve para buscar patrones en archivos o en salidas de otros comandos
+
+grep "texto a buscar" archivo.extensión
+nos devuelve en patanlla todas las líneas en donde aparece aquello
+que buscamos
+
+grep -i "Palabras" archivo.txt
+va a ignorar que "Palabras" está en mayúsculas
+hace que no sea case sensitive
+
+búsquedas recursivas con grep
+grep -r "palabra" CarpetaAbuelo/carpetaPadre/carpetaHijo
+
+buscará la palabra o palabras indicadas de forma recursiva
+en todo el directorio y sub directorios
+podemos concatenar con -i para que no detecte mayúsculas
+
+comando wc 
+wc archivo.txt
+wc -l cuenta las líneas del archivo
+wc -w cuenta las palabras del archivo
+wc -c cuenta de los bytes que pesa el archivo
+
+se pueden concatenar varias flags
+
+--------
+
+REDIRECCIÓN Y PIPES
+vamos a empezar a trabajar con la salida de los comandos o
+encadenar comandos mediante símbolos de < y >
+
+Redirección
+>
+>>
+<
+
+ejemplo redirección simple:
+echo "Hola" > hello.txt
+guarda el texto en el archivo indicado
+tiene sobreescritura
+
+para almacenar más texto sobre un archivo que ya tiene texto
+previamente
+
+echo "pan" >> hello.txt
+añade el texto al final
+es importante saber que no admite símbolos ya que nos puede mostrar
+un mensaje en pantalla de evento no encontrado
+
+combinar tree con >>
+podríamos hacer que la salida del comando tree se guarde en el 
+archivo hello.txt
+
+para tomar de entrada el contenido de un fichero o archivo <
+podemos ordenar contenido ya almacenado de esta manera
+habiendo guardado la salida del tree en el archivo hello.txt
+aplicamos:
+sort < hello.txt
+y automáticamente nos ejecuta en pantalla el sort (ordena) 
+
+
+PIPES |
+es esa barra |
+sirve para concatenar diferentes comandos
+cat archivo.txt | grep "palabra" | wc -w
+esto nos devolvería la cantidad de palabras que coinciden con
+"palabra" dentro del archivo.txt
+
+--------
+
+VARIABLES DE ENTORNO
+echo $HOME
+echo $PATH
+
+se pueden definir variables a nivel de sistema y a nivel local
+
+definir variable local:
+name="variable"
+acabamos de definir una variable en la sesión del zsh o bash que es
+variable, aunque el nombre es name
+echo $name
+devuelve variable
+solamente será visible esa variable en la sesión del bash en donde
+fue definida, porque fue declarada en la sesión esa y no en la
+de la nuev terminal (o nueva sesión)
+
+hay variables globales como $PATH que se guardan a nivel del SO
+para poder guardar variables a nivel global:
+export NOMBRE="Variable Global"
+
+para que esa variable exportada sea visible por todas las 
+sesiones de bash, tenemos que acceder al fichero de la 
+bash_profile y añadir allí el export VARIABLE="valor"
+de esta manera hacemos persistente la variable
+
+---
+
+EJERCICIOS SOBRE COMANDOS AVANZADOS (cat, grep, less, find, etc.)
+* mostrar todo el contenido de un archivo
+* mostrar el contenido paginado de un archivo
+* mostrar las primeras 15 líneas de un archivo
+* mostrar las últimas 15 líneas de un archivo
+* buscar una palabra en un archivo
+* contar las líneas de un archivo
+* redirigir una salida de un comando y guardarla en un archivo
+* añadir una nueva salida al archivo anterior
+* encadenar 3 comandos
+* crear una variable local y mostrarla
