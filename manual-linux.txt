@@ -466,6 +466,7 @@ sesiones de bash, tenemos que acceder al fichero de la
 bash_profile y añadir allí el export VARIABLE="valor"
 de esta manera hacemos persistente la variable
 
+El archivo está en el directorio del usuario, como archivo oculto
 ---
 
 EJERCICIOS SOBRE COMANDOS AVANZADOS (cat, grep, less, find, etc.)
