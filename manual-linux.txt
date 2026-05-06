@@ -463,20 +463,39 @@ export NOMBRE="Variable Global"
 
 para que esa variable exportada sea visible por todas las 
 sesiones de bash, tenemos que acceder al fichero de la 
-bash_profile y añadir allí el export VARIABLE="valor"
+.bash_profile y añadir allí el export VARIABLE="valor"
 de esta manera hacemos persistente la variable
 
 El archivo está en el directorio del usuario, como archivo oculto
+
 ---
 
 EJERCICIOS SOBRE COMANDOS AVANZADOS (cat, grep, less, find, etc.)
 * mostrar todo el contenido de un archivo
+cat manual-linux.txt
+
 * mostrar el contenido paginado de un archivo
+less manual-linux.txt
+
 * mostrar las primeras 15 líneas de un archivo
+head -n 15 manual-linux.txt
+
 * mostrar las últimas 15 líneas de un archivo
+tail -n 15 manual-linux.txt
+
 * buscar una palabra en un archivo
+grep "flag" manual-linux.txt
+
 * contar las líneas de un archivo
-* redirigir una salida de un comando y guardarla en un archivo
+wc -l manual-linux.txt
+
+* redirigir una salida y guardarla en un archivo
+
+
 * añadir una nueva salida al archivo anterior
+
+
 * encadenar 3 comandos
+
+
 * crear una variable local y mostrarla
