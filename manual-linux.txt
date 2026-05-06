@@ -509,3 +509,95 @@ llamado new.txt)
 name="Vedrack"
 echo $name
 (al ser local, no hay problema con mostrarla de forma sencilla)
+
+--------
+
+EDITORES BÁSICOS
+Nano y Vim
+
+Nano es el editor de texto más sencillo de los dos y sirve para
+ediciones simples.
+Vim es más complejo, con una curva de aprendizaje más alta y con
+muchas más funcionalidades que lo habilitan a ser un editor de 
+código.
+
+VIM - MODOS
+Modo normal - es el que permite navegar, borrar, copiar, son
+acciones simples pero que no están vinculadas a insertar texto.
+Es el modo por defecto al abrir un documento.
+Con escape volvemos al modo normal desde otro modo.
+Desplazamiento con flechas o hjkl
+
+Modo insert - se activa con i
+
+Modo Comando - lo podemos usar desde el modo normal para poner
+comandos
+
+NeoVim es la versión vitaminada de vim y ambos sirven para
+programar de manera rápida y con manejo de atajos, pero es
+orientado a gente que le dedica bastante tiempo.
+
+EJERCICIOS CON EDITORES:
+PARA NANO:
+* crear un archivo llamado nota.txt y escribir 3 líneas de texto
+
+* abrir nota.txt y añadir una nota al final y guardar cambios
+
+* abrir un archivo nuevo llamado recordatorio.txt, escribir algo
+y salir sin guardar
+
+* buscar una palabra específica en un archivo existente
+
+* cortar una línea y pegarla en otra parte
+
+PARA VIM
+* crear apuntes.txt, entrar en modo inserción y escribir una frase
+entramos en modo insert antes del cursor con i
+entramos en modo insert después del cursor con a
+entramos en modo insert en una nueva línea debajo del cursor con o
+x borra el caracter debajo del cursor
+
+* mover el cursor solo con hjkl
+
+* borrar una línea completa y deshacer el cambio
+se borra con dd la línea actual en donde estás con el cursor
+y con u se revierte el cambio
+con ctrl r rehacemos la última acción
+
+* copiar una línea y pegarla debajo
+copio con yy
+la pego con p
+
+* guardar los cambios y salir (:wq)
+salir sin guardar :q! 
+
+-nota: se puso pillo el max que ahora estoy editando esto con vim para agarrarle el gustito a esto de los atajos.
+
+--------
+
+TIPOS DE PERMISO Y USUARIO
+cuando hablamos de terminal, hablamos de administradores de sistemas o sysadmin
+vinculado a los procesos de administración del sistema
+
+vamos a ver cómo funcionan los permisos en bash, unix, mac, linux
+
+cada archivo y directorio tiene permisos de quién lo puede leer, escribir y ejecutar.
+cada archivo/fichero tienen sus permisos y son modificables.
+en unix hay un estándar que vamos a conocer.
+
+TIPOS DE PERMISO
+lectura - r
+escritura - w
+ejecución - x
+
+Existen los tipos de usuario
+usuario propietario - u
+grupo - g
+otros - o
+todos - a
+
+Cómo ver permisos?
+con el comando ls -l nombreArchivo.extensión
+ahí vemos los permisos de un archivo en particular
+
+

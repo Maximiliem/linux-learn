@@ -1,0 +1,25 @@
+Escribimos una frase muy linda, que es sobre estar aprendiendo a usar Vim de manera muy básica.
+
+Acá tenemos una línea nueva.
+
+linea de pruebas para poder probar comandos y romper
+linea de pruebas para poder probar comandos y romper
+aca ponemos una línea hecha con o porque el cursor estaba arriba
+linea de pruebas para poder probar comandos y romper
+linea de pruebas para poder probar comandos y romper
+
+Guardar y salir usando modo línea de comandos
+:w guardar el archivo solamente
+:q salir de vim
+:wq o zz guardar y salir
+:q! salir sin guardar
+
+en modo normal podemos usar / para buscar 
+/texto busca "texto" hacia adelante
+?texto busca "texto" hacia atrás
+n repetir la última búsqueda en la misma dirección
+N reptie la útlima búsqueda en dirección contraria
+
+se puede aprender de forma interactiva utilizando el comando vimtutor en la terminal -es literal en terminal, no en vim-
+
+
