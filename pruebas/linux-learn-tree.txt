@@ -1,0 +1,8 @@
+.
+├── linux-learn-tree.txt
+├── manual-linux.txt
+└── pruebas
+    └── test1
+        └── test.txt
+
+3 directories, 3 files

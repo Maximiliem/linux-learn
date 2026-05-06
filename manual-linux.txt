@@ -490,12 +490,22 @@ grep "flag" manual-linux.txt
 wc -l manual-linux.txt
 
 * redirigir una salida y guardarla en un archivo
-
+echo "Hola" > test.txt
 
 * añadir una nueva salida al archivo anterior
+echo "soy una nueva salida" >> test.txt
 
+otra alternativa:
+tree > linux-learn-tree.txt (le tiramos un cat o head y vemos 
+su contenido)
 
 * encadenar 3 comandos
-
+cat linux-learn-tree.txt | grep "pruebas" | > new.txt
+(esto lee el archivo del tree que ya tenía guardado, luego busca
+la palabra "pruebas" y la guarda en un nuevo fichero de texto
+llamado new.txt)
 
 * crear una variable local y mostrarla
+name="Vedrack"
+echo $name
+(al ser local, no hay problema con mostrarla de forma sencilla)
