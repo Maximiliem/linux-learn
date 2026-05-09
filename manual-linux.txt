@@ -537,6 +537,8 @@ NeoVim es la versión vitaminada de vim y ambos sirven para
 programar de manera rápida y con manejo de atajos, pero es
 orientado a gente que le dedica bastante tiempo.
 
+Para ir al final del documento usando Vim, una vez abierto hacemos Shift + g y para ir al inicio del documento gg
+
 EJERCICIOS CON EDITORES:
 PARA NANO:
 * crear un archivo llamado nota.txt y escribir 3 líneas de texto
@@ -570,6 +572,7 @@ la pego con p
 
 * guardar los cambios y salir (:wq)
 salir sin guardar :q! 
+también se pueden guardar los cambios con :x que la ventaja es que si no hubieron cambios, no modifica la fecha de modificación del archivo
 
 -nota: se puso pillo el max que ahora estoy editando esto con vim para agarrarle el gustito a esto de los atajos.
 
@@ -599,5 +602,113 @@ todos - a
 Cómo ver permisos?
 con el comando ls -l nombreArchivo.extensión
 ahí vemos los permisos de un archivo en particular
+
+ANATOMÍA DE LOS PERMISOS
+[-][rw-][r--][r--]
+
+tenemos cuatro segmentos diferentes
+
+bloque 1 -
+el guión es un archivo normal (solo para este bloque)
+la d significa que es un directorio
+la l un enlace simbólico
+la b un bloque
+la s que es un dispositivo de caracter
+
+bloque 2 rw-
+son los permisos de usuario
+
+bloque 3 r--
+permisos del grupo
+
+bloque 4 r--
+permisos referidos a otros usuarios que no sean el propietario del archivo
+o del grupo
+
+el guión en otros bloques es que no tiene permiso asignado
+
+MODIFICACIÓN DE PERMISOS
+con el comando chmod
+los permisos en modo simbólico r w x, tienen su equivalencia en octal
+
+Modo octal
+r - 4
+w - 2
+x - 1
+
+CAMBIAR PERMISOS EN MODO SIMBÓLICO
+tenemos que hacer referencia al usuario con su letra
+propietario u
+grupo g
+otros o
+todos a
+
+para añadir
+chmod u+x archivoDestino.extensión
+
+para eliminar
+chmod u-x archivoDestino.extensión
+
+MODIFICAR PERMISOS EN MODO OCTAL
+chmod 777 archivo.txt
+el primer 7 hace referencia al grupo propietario
+el segundo 7 hace referencia a los grupos de usuarios
+el tercer 7 hace referencia a otros
+con esto cambiamos permisos para todos los grupos
+
+CAMBIAR PROPIETARIO Y GRUPO
+chown nombreUsuario archivo.txt
+con esto cambiamos el propietario de un fichero o carpeta
+
+para cambiar prop y grupo
+chown nombreUsuario:grupo archivo.txt
+
+MÁSCARA DE PERMISOS
+para esto hay dos comandos
+umask
+suele verse 0022
+
+el primer 0 a veces no aparece (como en mi caso en mac)
+está en base octal, por lo que a veces no aparece el primer cero
+0 - sistema octal
+0 - usuario (no quito nada)
+2 - grupos (quito write)
+2 -otros
+
+Hay que recordar los valores de r w x
+r - 4
+w - 2
+x - 1
+
+Entonces 022 no quita nada al usuario, le quita a grupos y otros los permisos de write
+
+la máscara nos muestra cuáles son los permisos que se otorgan por defecto al momento de crear un archivo o directorio.
+
+los permisos máximos que se pueden otorgar son 777
+según el umask, los archivos van a tener los permisos 755 porque sobre el 777 tengo que restar los números del umask
+  777
+- 022
+------
+  755
+
+entonces el permiso máximo para directorios es este.
+
+para listar permisos de un directorio tenemos que hacer ls -ld directorio
+
+los archivos tienen como permiso máximo 666 y sobre esto debemos calcular de la misma forma que hicimos para los directorios
+
+  666
+- 022
+------
+  644
+
+NOTA IMPORTANTE:
+no es recomendable andar cambiando la máscara.
+----------------------
+
+SUPERUSUARIO
+
+Hay algunas acciones que requieren privilegios de administrador o superusuario, porque la ejecución del fichero está "blindado".
+Esto es para tareas complejas como borrados masivos, instalaciones que instala en diferentes directorios materiales extra, o bien, un usuario limitado.
 
 
