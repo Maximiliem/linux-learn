@@ -795,3 +795,16 @@ IMPORTANTE: los alias son temporales para la sesión de terminal que tengamos en
 ---------
 
 SCRIPTING
+un script es un archivo de texto que tiene comandos que la shell va a ejecutar de manera secuencial
+
+Cómo se crea un scritp?
+es un fichero que lleva la extensión .sh
+aunque no siempre lleva extension ya que bash puede reconocerlo por su contenido
+
+la primera línea es la que indica con qué se va a ejecutar el scritp
+#!/bin/bash
+
+comentarios se hacen con #
+
+importante saber que las variables en scripting llevan el = totalmente pegado al nombre de la variable y al valor varName="value"
+
