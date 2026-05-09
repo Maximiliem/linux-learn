@@ -711,4 +711,30 @@ SUPERUSUARIO
 Hay algunas acciones que requieren privilegios de administrador o superusuario, porque la ejecución del fichero está "blindado".
 Esto es para tareas complejas como borrados masivos, instalaciones que instala en diferentes directorios materiales extra, o bien, un usuario limitado.
 
+-----
 
+EJERCICIOS:
+* crear un archivo y visualizar sus permisos
+se crea el archivo permisos.txt en /Documents/linux-learn/pruebas/ejercicios_permisos
+los permisos que tiene el archivo permisos.txt son -rw-r--r--
+para el usuario tiene lectura y escritura, para el grupo y otros solo lectura
+
+* otorgar permisos de ejecución solo al propietario en modo simbólico
+se hace con chmod u+x permisos.txt
+
+
+* cambiar sus permisos a 644
+esto implica pasarlo de -rwxr--r-- y convertirlo en -rw-r--r--
+hacemos chmod u-x permisos.txt
+
+* eliminar los permisos para el grupo
+chmod g-r permisos.txt
+
+* hacer que solo se pueda ejecutar por el propietario
+chmod u+x permisos.txt
+
+* crear una carpeta y darle permisos para que sólo el usuario pueda acceder
+mkdir carpeta_permisos
+chmod 700 carpeta_permisos
+
+* consultar las máscaras de permisos actuales y calcular qué permisos por defecto tendrán los nuevos archivos
