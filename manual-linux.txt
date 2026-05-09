@@ -738,3 +738,60 @@ mkdir carpeta_permisos
 chmod 700 carpeta_permisos
 
 * consultar las máscaras de permisos actuales y calcular qué permisos por defecto tendrán los nuevos archivos
+
+-------
+
+PROCESOS DEL SISTEMA
+
+ps sirve para listar procesos
+ps aux lista todos los procesos que hay en el sistema
+
+top sirve para listar procesos con datos interactivos y dinámicos que cambian en tiempo de ejecución (salimos con ctrl c)
+
+el PID es el identificador único del proceso
+
+df -h sirve para ver espacio en disco
+
+du -sh * sirve para ver el espacio en disco que ocupa cada archivo y directorio
+
+-------
+
+JOBS
+hace referencia a trabajos en segundo plano
+
+sleep 100 es un proceso en segundo plano que se ejecuta durante tantos segundos
+para mandarlo al backgroun primero tengo que hacer ctrl z para sacarlo de terminal y luego hacer bg %1
+y si lo quiero traer al frente hago fg %1
+
+si ahora tiro en temrinal el jobs voy a ver lo que se ejecuta en segundo plano
+
+sabiendo el PID de un proceso lo puedo eliminar con el comando kill PID
+para forzar la kill hacemos kill -9 PID
+
+-----------
+
+HISTORIAL
+comando history
+muestra el historial de comandos que estuvimos lanzando en temrinal
+puedo acceder rápidamente a algún comando que ya usé si pongo !numeroComando
+
+por ejemplo en la lista del historial en el 495 veo un ls entonces si hago !495 me va a tirar nuevamente en terminal un ls con su salida correspondiente 
+
+también se puede usar !comando y nos ejecuta el último comando que se inicia con !comando
+
+---------
+
+ALIAS
+sirve para asignar un alias a un comando que usamos mucho, por ejemplo el ls -lh lo podemos asociar al alias ll de la siguiente forma:
+alias ll='ls -lh'
+ES IMPORTANTE QUE TENGA COMILLAS SIMPLES
+
+para eliminar un alias tenemos que hacer:
+unalias nombrealias
+unalias ll nos eliminaría el que creamos antes
+
+IMPORTANTE: los alias son temporales para la sesión de terminal que tengamos en ese momento. En caso de querer hacerlo permanente o persistente, tenemos que agregarlo en el archivo de configuración del script de arranque de bash o terminal
+
+---------
+
+SCRIPTING
